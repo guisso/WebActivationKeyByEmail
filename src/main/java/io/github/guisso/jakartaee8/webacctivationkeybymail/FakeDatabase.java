@@ -22,7 +22,7 @@ public class FakeDatabase
 
         User user = new User();
         user.setId(1001L);
-        user.setName("Andréa Zaira");
+        user.setName("Ana Zaira");
         user.setEmail("az@mail.com");
         user.setEncryptedPassword(passwordAndSalt[Util.ENCPASSWD]);
         user.setSalt(passwordAndSalt[Util.SALT]);
@@ -45,12 +45,13 @@ public class FakeDatabase
             System.out.println("\rUser\r"
                     + users.get(email));
         }
-        // OU
+        // OR
         System.out.println("\r\rentrySet()");
         for (Map.Entry<String, User> entry : users.entrySet()) {
             User u = entry.getValue();
             String email = entry.getKey(); // Example only
-            System.out.println("\r\rUser\r" + u);
+            System.out.println("\r\rKey: " + email 
+                    + ", Value\r" + u);
         }
         // OU
         System.out.println("\r\rvalues()");

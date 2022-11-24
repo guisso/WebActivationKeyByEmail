@@ -39,7 +39,7 @@ public class MailService
         body.setContent(
                 String.format("<html><h1>System Key Activation</h1>"
                         + "<h2>Hi, %s!</h2>"
-                        + "<p>Clik <a href=\"%s\" style=\"padding: 0 .25em; background-color: #ccc;\">here</a> to <b>activate</b> your account.</p></html>", name, link),
+                        + "<p style=\"background-color: #eee; padding: .25em; border: solid #999 thin; border-left: solid #999 4px;\">Click <a href=\"%s\" style=\"padding: 0 .25em; background-color: #ccc;\">here</a> to <b>activate</b> your account.</p></html>", name, link),
                 "text/html; charset=utf-8");
 
         content.addBodyPart(body);

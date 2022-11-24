@@ -113,7 +113,7 @@ public class UserBean
                 + FakeDatabase.findByEmail(
                         user.getEmail()));
 
-        String link = "http://127.0.0.1:8080/WebAcctivationKeyByMail-1.0-SNAPSHOT/Activation?email=" + user.getEmail() + "&activationKey=" + user.getKey();
+        String link = "http://127.0.0.1:8080/WebAcctivationKeyByMail/Activation?email=" + user.getEmail() + "&activationKey=" + user.getKey();
         System.out.println(">> " + link);
 
         //

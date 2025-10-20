@@ -1,4 +1,4 @@
-package io.github.guisso.jakartaee8.webacctivationkeybymail;
+package io.github.guisso.jakartaee10.webacctivationkeybymail;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
@@ -17,10 +17,10 @@ import javax.crypto.spec.PBEKeySpec;
  * @author Luis Guisso <luis.guisso at ifnmg.edu.br>
  */
 public class Util {
-    
+
     public static final byte ENCPASSWD = 0;
     public static final byte SALT = 1;
-    
+
     public static String[] hash(
             String plainText) {
         return Util.hash(plainText, null);
@@ -53,7 +53,7 @@ public class Util {
             KeySpec spec = new PBEKeySpec(
                     plainText.toCharArray(),
                     salt,
-                    2147, // Iterations
+                    100_000, // Iterations
                     128); // SHA1: 160 bits
 
             // PBKDF2WithHmacSHA1
@@ -63,6 +63,7 @@ public class Util {
             // https://tools.ietf.org/html/rfc8018
             SecretKeyFactory factory = SecretKeyFactory
                     .getInstance("PBKDF2WithHmacSHA1");
+//                    .getInstance("PBKDF2WithHmacSHA256");
 
             // Encodes password from bytes[]
             // to Base64 String
@@ -100,8 +101,9 @@ public class Util {
                 && user != null
                 && user.getEncryptedPassword() != null
                 && user.getSalt() != null) {
-            if (hash(password, user.getSalt())[ENCPASSWD]
-                    .equals(user.getEncryptedPassword())) {
+            String[] hashResult = hash(password, user.getSalt());
+            if (hashResult != null 
+                    && hashResult[ENCPASSWD].equals(user.getEncryptedPassword())) {
                 return true;
             }
         }

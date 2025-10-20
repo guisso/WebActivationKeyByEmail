@@ -1,7 +1,7 @@
-package io.github.guisso.jakartaee8.webacctivationkeybymail;
+package io.github.guisso.jakartaee10.webacctivationkeybymail;
 
-import javax.ejb.Local;
-import javax.mail.MessagingException;
+import jakarta.ejb.Local;
+import jakarta.mail.MessagingException;
 
 /**
  *
@@ -9,8 +9,8 @@ import javax.mail.MessagingException;
  */
 @Local
 public interface MailServiceLocal {
-    
+
     public void sendMail(String to, String name, String key)
             throws MessagingException;
-    
+
 }

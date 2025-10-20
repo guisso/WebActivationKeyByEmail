@@ -1,15 +1,15 @@
-package io.github.guisso.jakartaee8.webacctivationkeybymail;
+package io.github.guisso.jakartaee10.webacctivationkeybymail;
 
-import javax.annotation.Resource;
-import javax.ejb.Stateless;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import jakarta.annotation.Resource;
+import jakarta.ejb.Stateless;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
 
 /**
  *
@@ -19,7 +19,8 @@ import javax.mail.internet.MimeMultipart;
 public class MailService
         implements MailServiceLocal {
 
-    @Resource(name = "java:/WebAppActivation")
+//    @Resource(name = "java:/WebAppActivation")
+    @Resource(name = "java:/MailGunSMTP")
     private Session mailSession;
 
     @Override
@@ -28,7 +29,8 @@ public class MailService
 
         MimeMessage mail = new MimeMessage(mailSession);
 
-        mail.setFrom("webappactivation@outlook.com");
+//        mail.setFrom("webappactivation@outlook.com");
+        mail.setFrom("luis.guisso@sandbox32f8a64c46054887862677d7d2932d61.mailgun.org");
         mail.setSubject("System Key Activation");
         mail.setRecipient(Message.RecipientType.TO,
                 new InternetAddress(to));

@@ -1,4 +1,4 @@
-package io.github.guisso.jakartaee8.webacctivationkeybymail;
+package io.github.guisso.jakartaee10.webacctivationkeybymail;
 
 import java.io.Serializable;
 import java.util.HashMap;

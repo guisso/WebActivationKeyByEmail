@@ -1,4 +1,4 @@
-package io.github.guisso.jakartaee8.webacctivationkeybymail;
+package io.github.guisso.jakartaee10.webacctivationkeybymail;
 
 import java.util.Objects;
 import java.util.UUID;
